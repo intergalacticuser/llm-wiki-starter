@@ -14,17 +14,20 @@ This file is the planning surface in the repository. GitHub issues and milestone
 
 Issue links are grouped by phase and kept here as the source of truth for release planning.
 
+## Tracking
+
+- [#11 Roadmap tracker: v0.x plan for LLM Wiki Starter](https://github.com/intergalacticuser/llm-wiki-starter/issues/11)
+
 ## v0.1 Foundation
 
 This phase is about making the starter dependable enough that someone can clone it, understand it, and trust the core workflow.
 
 Planned issues:
 
-- Roadmap tracker: v0.x plan for LLM Wiki Starter
-- Add parser tests for Codex and Claude chat ingestion
-- Add CI for CLI smoke checks and docs integrity
-- Add sample public demo corpus and guided walkthrough
-- Add wiki lint command for orphan pages, index drift, and stale links
+- [#1 Add parser tests for Codex and Claude chat ingestion](https://github.com/intergalacticuser/llm-wiki-starter/issues/1)
+- [#2 Add CI for CLI smoke checks and docs integrity](https://github.com/intergalacticuser/llm-wiki-starter/issues/2)
+- [#3 Add sample public demo corpus and guided walkthrough](https://github.com/intergalacticuser/llm-wiki-starter/issues/3)
+- [#4 Add wiki lint command for orphan pages, index drift, and stale links](https://github.com/intergalacticuser/llm-wiki-starter/issues/4)
 
 Release-ready definition:
 
@@ -36,9 +39,9 @@ This phase is about moving beyond transcript collection and summary pages. The s
 
 Planned issues:
 
-- Promote chat summaries into durable memory pages
-- Add canonical entity normalization for noisy project names
-- Add reusable query filing workflow for durable answers
+- [#5 Promote chat summaries into durable memory pages](https://github.com/intergalacticuser/llm-wiki-starter/issues/5)
+- [#6 Add canonical entity normalization for noisy project names](https://github.com/intergalacticuser/llm-wiki-starter/issues/6)
+- [#7 Add reusable query filing workflow for durable answers](https://github.com/intergalacticuser/llm-wiki-starter/issues/7)
 
 Release-ready definition:
 
@@ -50,9 +53,9 @@ This phase is about making the system easier to share safely and easier to exten
 
 Planned issues:
 
-- Add safe public-export workflow for private wikis
-- Expand chat source support beyond Codex and Claude Code
-- Add release checklist and changelog workflow
+- [#8 Add safe public-export workflow for private wikis](https://github.com/intergalacticuser/llm-wiki-starter/issues/8)
+- [#9 Expand chat source support beyond Codex and Claude Code](https://github.com/intergalacticuser/llm-wiki-starter/issues/9)
+- [#10 Add release checklist and changelog workflow](https://github.com/intergalacticuser/llm-wiki-starter/issues/10)
 
 Release-ready definition:
 
