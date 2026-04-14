@@ -86,6 +86,7 @@ The goal here is not to replace the original idea. It is to offer a working star
 - [From Idea To Working System](docs/from-idea-to-working-system.md)
 - [Contributing](CONTRIBUTING.md)
 - [Security notes](SECURITY.md)
+- [Code of Conduct](CODE_OF_CONDUCT.md)
 
 ## Contributing
 

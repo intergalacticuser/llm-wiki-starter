@@ -1,0 +1,5 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Security concern
+    url: https://github.com/intergalacticuser/llm-wiki-starter/security
+    about: Please avoid posting secrets or private data in public issues.
