@@ -7,6 +7,7 @@ The goal is to summarize user-visible improvements, workflow changes, and new ca
 ## Unreleased
 
 - Initial public starter published
+- Added a reusable Codex skill for operating LLM Wiki repositories
 
 ## v0.3 Privacy and Scale
 

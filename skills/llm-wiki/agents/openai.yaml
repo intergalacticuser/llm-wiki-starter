@@ -1,0 +1,8 @@
+interface:
+  display_name: "LLM Wiki"
+  short_description: "Operate a persistent wiki memory repo"
+  brand_color: "#2563EB"
+  default_prompt: "Use $llm-wiki to refresh memory, ingest sources, and answer from the durable wiki pages in this repository."
+
+policy:
+  allow_implicit_invocation: false

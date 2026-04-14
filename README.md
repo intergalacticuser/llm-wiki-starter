@@ -57,6 +57,12 @@ python3 tools/ingest-chats.py ingest --all
 python3 tools/ingest-chats.py ingest --current
 ```
 
+## Optional Codex skill
+
+The repository also includes an optional Codex skill at `skills/llm-wiki/`.
+
+If you copy that folder into `~/.codex/skills/llm-wiki`, you can call the workflow from Codex through the skill picker or an explicit `$llm-wiki` invocation. The skill is designed for repos that use this wiki pattern and want a consistent ingest, refresh, query, and public-safety workflow.
+
 ## Privacy and publishing
 
 This starter repository is intentionally clean.
