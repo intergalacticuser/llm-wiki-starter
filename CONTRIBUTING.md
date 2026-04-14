@@ -8,6 +8,7 @@ If you want to contribute, the most useful changes are the practical ones:
 - safer sanitization workflows before publishing
 - clearer wiki schemas for real-world use
 - improvements to `refresh-memory`
+- better product-family normalization and candidate-merge review workflows
 - better examples of durable `entities`, `concepts`, and `queries`
 
 ## Good pull requests

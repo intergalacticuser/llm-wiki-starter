@@ -129,6 +129,8 @@ When the user asks a question:
 6. **Optionally file the answer** as a new page in `wiki/queries/` if it has lasting value
 7. **Append to `log.md`** — record the query
 
+When the project identity is unclear, treat chat names, folder names, version suffixes, and higher-level workspace directories as hints rather than hard boundaries. Infer the canonical product from the content itself: repeated feature vocabulary, shared bugs, deployment targets, app surfaces, brand language, and explicit references to older versions or sibling workspaces.
+
 ### 3. LINT — Health Check
 
 Periodically (or when asked), audit the wiki for:
@@ -183,9 +185,21 @@ python3 tools/ingest-chats.py ingest --all --ide codex
 **After running the tool**, the LLM should:
 1. Read the generated summaries in `wiki/summaries/chat-*.md`
 2. Extract key decisions, patterns, entities, and concepts
-3. Create/update entity and concept pages as needed
-4. Update `index.md` with new pages
-5. Add cross-references between related pages
+3. Normalize product identity across renamed folders, versioned workspaces, and higher-level directory changes before deciding that two chats belong to different products
+4. Create/update entity and concept pages as needed
+5. Update `index.md` with new pages
+6. Add cross-references between related pages
+
+### 4b. ANALYZE-PRODUCT-FAMILIES — Find Cross-Folder Product Families
+
+Use `python3 tools/analyze-product-families.py` when chat names, folder names, or versioned workspaces may be hiding one broader product family.
+
+What it does:
+1. Reads the shared alias registry in `tools/product-aliases.json`
+2. Scores likely cross-folder and cross-version family overlaps from summary content
+3. Writes a candidate report into `wiki/queries/`
+4. Rebuilds `index.md`
+5. Appends the run to `log.md`
 
 ### 4a. REFRESH-MEMORY — Incremental Memory Refresh
 
@@ -202,7 +216,7 @@ Examples:
 ./refresh-memory
 ./refresh-memory --ide codex
 ./refresh-memory --current
-./refresh-memory --project "mind-circle"
+./refresh-memory --project "my-project"
 ```
 
 **Supported IDE chat storage locations:**
@@ -233,7 +247,8 @@ When a new chat starts in this repository:
 3. Read `log.md`
 4. Build a short candidate set of relevant pages in `wiki/entities/`, `wiki/concepts/`, and `wiki/queries/`
 5. If the project name is noisy or ambiguous, use normalization/query pages to map it to a canonical entity first
-6. Only after that, open `wiki/summaries/` or `sources/` as needed
+6. Treat workspace names, branch-like folder names, and version folders as heuristic signals only, not proof that the work belongs to a different product
+7. Only after that, open `wiki/summaries/` or `sources/` as needed
 
 This routing is mandatory for non-trivial questions. Do not answer from scratch if the wiki already contains relevant durable memory.
 
@@ -320,6 +335,7 @@ This wiki is designed to work with:
 | "Add to sources" | Save file to `sources/`, don't process yet |
 | "Update index" | Rebuild `index.md` from current wiki pages |
 | "Refresh memory" | Run `./refresh-memory` to ingest new/updated chats and rebuild the index |
+| "Analyze product families" | Run `python3 tools/analyze-product-families.py` to review cross-folder and cross-version merge candidates |
 | "Ingest chats" / "Засосать чаты" | Run INGEST-CHATS: process IDE conversation history |
 | "Ingest all chats" | Run INGEST-CHATS with `--all` flag |
 | "Ingest this chat" | Run INGEST-CHATS with `--current` flag |

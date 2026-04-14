@@ -40,6 +40,14 @@ python3 tools/ingest-chats.py ingest --project "my-project"
 python3 tools/ingest-chats.py ingest --chat /path/to/chat.jsonl
 ```
 
+### Product-family analysis
+
+```bash
+python3 tools/analyze-product-families.py
+```
+
+Use this when one product may be spread across renamed folders, copied workspaces, or versioned directories.
+
 ## Query routing order
 
 Do not answer from scratch if the wiki already contains durable memory.
@@ -53,6 +61,8 @@ Use this order:
 5. relevant `wiki/queries/`
 6. `wiki/summaries/`
 7. `sources/`
+
+Treat folder names and chat titles as clues, not as final truth, when deciding product identity.
 
 ## Maintenance checklist
 

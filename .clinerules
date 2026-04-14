@@ -7,6 +7,7 @@ You are operating an LLM Wiki — a persistent knowledge base stored as markdown
 2. Read `index.md` to see what content exists
 3. Read `log.md` for recent activity
 4. Build a short shortlist of relevant `wiki/entities/`, `wiki/concepts/`, and `wiki/queries/` pages before answering
+5. Treat chat names, folder names, copied workspaces, and version directories as hints rather than proof of separate product identity
 
 ## Quick Reference
 

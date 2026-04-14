@@ -6,6 +6,8 @@ The original idea comes from Andrej Karpathy's "LLM Wiki" note. His post explain
 
 This repository takes that idea and turns it into something you can actually open in an IDE and use right away.
 
+It is our practical angle on Andrej Karpathy's LLM Wiki pattern: keep the original idea intact, then add the operational layer that makes it hold up in day-to-day work.
+
 ## What this starter adds
 
 The original note is intentionally abstract. That is part of its strength. It gives you the pattern without locking you into one implementation.
@@ -15,6 +17,8 @@ This starter focuses on the missing operational layer:
 - ready-to-use instruction files for Codex, Claude Code, Cursor, Windsurf, Copilot, and Cline
 - a working chat-ingestion tool for Codex and Claude Code histories
 - an incremental `./refresh-memory` command for the day-to-day workflow
+- a registry-backed way to normalize product identity when the same work shows up across renamed folders, copied workspaces, or versioned directories
+- a heuristic `tools/analyze-product-families.py` pass for finding cross-folder and cross-version candidate merges before memory gets fragmented
 - a routing model that tells agents to read `entities`, `concepts`, and `queries` before digging into summaries or raw transcripts
 - a cleaner repo shape for turning the idea into a repeatable personal or team setup
 
@@ -55,6 +59,9 @@ The point is still compounding memory, not one-shot retrieval.
 python3 tools/ingest-chats.py list
 python3 tools/ingest-chats.py ingest --all
 python3 tools/ingest-chats.py ingest --current
+
+# review likely cross-folder product families
+python3 tools/analyze-product-families.py
 ```
 
 ## Optional Codex skill pack
@@ -68,6 +75,7 @@ The general entrypoint is `skills/llm-wiki/`, and there are also narrower focuse
 - `llm-wiki-ingest-all`
 - `llm-wiki-read`
 - `llm-wiki-lint`
+- `llm-wiki-analyze-families`
 
 If you copy these folders into `~/.codex/skills/`, they can be invoked from the Codex skill picker or through explicit prompts such as `$llm-wiki-refresh` and `$llm-wiki-ingest-this`.
 
@@ -87,13 +95,15 @@ If you use this system for your own work, be careful before making your wiki pub
 
 If your wiki contains real personal or company memory, keep the repository private unless you have explicitly reviewed and sanitized it.
 
+This starter ships only the architecture and the tooling. It does not include a real private corpus.
+
 ## Attribution
 
 This project is inspired by Andrej Karpathy's LLM Wiki idea:
 
 - Original note: [LLM Wiki pattern](https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f)
 
-The goal here is not to replace the original idea. It is to offer a working starter kit for people who want to try it immediately.
+The goal here is not to replace the original idea. It is to offer a working starter kit for people who want to try it immediately, adapt it, and improve it from real usage.
 
 ## Where to read more
 

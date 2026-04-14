@@ -6,6 +6,7 @@
 #   ./wiki-ingest-chats.sh current           # Ingest current project
 #   ./wiki-ingest-chats.sh project NAME      # Ingest specific project
 #   ./wiki-ingest-chats.sh refresh           # Refresh new/updated chats + rebuild index
+#   ./wiki-ingest-chats.sh families          # Analyze likely cross-folder product families
 
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 PYTHON_SCRIPT="$SCRIPT_DIR/ingest-chats.py"
@@ -22,6 +23,9 @@ case "${1:-help}" in
         ;;
     refresh)
         python3 "$SCRIPT_DIR/refresh-memory.py" "${@:2}"
+        ;;
+    families)
+        python3 "$SCRIPT_DIR/analyze-product-families.py" "${@:2}"
         ;;
     project)
         if [ -z "$2" ]; then
@@ -45,6 +49,7 @@ case "${1:-help}" in
         echo "  $0 all [ide]               Ingest all chats"
         echo "  $0 current                 Ingest current project's chats"
         echo "  $0 refresh [--ide codex]   Ingest only new/updated chats and rebuild index"
+        echo "  $0 families                Analyze likely cross-folder product families"
         echo "  $0 project NAME            Ingest specific project"
         echo "  $0 chat PATH               Ingest specific chat file"
         echo ""

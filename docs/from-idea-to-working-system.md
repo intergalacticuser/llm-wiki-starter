@@ -55,6 +55,18 @@ This starter makes routing explicit:
 
 The repository is structured as a starter, not as a dump of a real private memory corpus. That makes it safer to publish, fork, and adapt.
 
+### 6. Product identity normalization
+
+Another practical failure mode shows up once a real corpus gets large: the same product can appear in several different folders, copied repos, branch-like directories, or versioned workspaces.
+
+If you do nothing, the memory layer fragments. The wiki starts treating one living product as five unrelated buckets just because the local folder names drifted over time.
+
+This starter now includes a small operational answer to that problem:
+
+- a registry file for accepted alias merges
+- a scoring pass for surfacing likely product-family overlaps
+- instructions that tell agents to treat folder names as hints, not as final truth
+
 ## Why that matters
 
 The jump from idea to usable system is usually not about adding more theory. It is about removing friction:
@@ -63,6 +75,7 @@ The jump from idea to usable system is usually not about adding more theory. It 
 - how do you ingest chat history without copying files by hand
 - how do you avoid reprocessing everything every time
 - how do you keep the public repo clean while using the system privately
+- how do you keep one product from fragmenting into several fake product buckets just because the workspace names changed
 
 That is the gap this starter is trying to close.
 

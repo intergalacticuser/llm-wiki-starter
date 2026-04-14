@@ -25,10 +25,12 @@ If the repository does not match that shape, say so and fall back to the local i
    - relevant pages in `wiki/entities/`, `wiki/concepts/`, and `wiki/queries/`
    - summaries only when those pages are not enough
    - raw sources only when exact detail is still needed
-3. For chat maintenance, prefer `./refresh-memory` when available. Use `tools/ingest-chats.py` only for targeted listing or ingest operations.
-4. After ingest, update durable pages, cross-links, `index.md`, and `log.md` if the repository expects that maintenance flow.
-5. If the repo includes `ROADMAP.md`, `CHANGELOG.md`, and GitHub milestones or issues, treat the repo docs as the planning surface and GitHub as the execution surface.
-6. Before any public sharing, audit raw chats, summaries, derived pages, local paths, tokens, deployment details, and other sensitive context.
+3. When names are noisy, treat folder names and chat titles as heuristics and use canonical entity pages or alias rules before splitting work into separate products.
+4. For chat maintenance, prefer `./refresh-memory` when available. Use `tools/ingest-chats.py` only for targeted listing or ingest operations.
+5. Use `tools/analyze-product-families.py` when one product may be spread across renamed folders, copied workspaces, or versioned directories.
+6. After ingest, update durable pages, cross-links, `index.md`, and `log.md` if the repository expects that maintenance flow.
+7. If the repo includes `ROADMAP.md`, `CHANGELOG.md`, and GitHub milestones or issues, treat the repo docs as the planning surface and GitHub as the execution surface.
+8. Before any public sharing, audit raw chats, summaries, derived pages, local paths, tokens, deployment details, and other sensitive context.
 
 ## What good use looks like
 

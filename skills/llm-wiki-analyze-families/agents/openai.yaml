@@ -1,0 +1,8 @@
+interface:
+  display_name: "LLM Wiki Analyze Families"
+  short_description: "Find likely cross-folder product families"
+  brand_color: "#2563EB"
+  default_prompt: "Use $llm-wiki-analyze-families to analyze likely product families across renamed folders and versioned workspaces."
+
+policy:
+  allow_implicit_invocation: false

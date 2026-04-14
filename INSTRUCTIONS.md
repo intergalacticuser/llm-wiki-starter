@@ -28,6 +28,7 @@ When a user asks a question, do not jump straight into summaries or raw sources.
 4. Read `sources/` only when the summaries are still insufficient or exact source wording matters
 
 Use canonical project pages when names are noisy or ambiguous. For example, map naming variants through normalization/query pages before assuming they are separate products.
+Treat chat titles, folder names, copied workspaces, and version directories as hints rather than proof of separate product identity. Prefer repeated feature language, deployment targets, bug families, and explicit references to earlier versions when deciding whether chats belong to the same product.
 
 ---
 

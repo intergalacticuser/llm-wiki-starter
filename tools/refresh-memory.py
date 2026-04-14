@@ -13,6 +13,7 @@ from __future__ import annotations
 
 import argparse
 import importlib.util
+import json
 import re
 from collections import Counter
 from datetime import datetime
@@ -23,6 +24,31 @@ WIKI_ROOT = Path(__file__).resolve().parent.parent
 INDEX_FILE = WIKI_ROOT / "index.md"
 LOG_FILE = WIKI_ROOT / "log.md"
 WIKI_DIR = WIKI_ROOT / "wiki"
+REGISTRY_FILE = Path(__file__).resolve().parent / "product-aliases.json"
+
+
+def load_cluster_aliases() -> dict[str, str]:
+    """Load canonical cluster aliases from the shared registry when available."""
+    if not REGISTRY_FILE.exists():
+        return {}
+
+    try:
+        data = json.loads(REGISTRY_FILE.read_text(encoding="utf-8"))
+    except json.JSONDecodeError:
+        return {}
+
+    aliases = data.get("canonical_aliases", {})
+    if not isinstance(aliases, dict):
+        return {}
+
+    return {
+        str(key).strip(): str(value).strip()
+        for key, value in aliases.items()
+        if str(key).strip() and str(value).strip()
+    }
+
+
+CLUSTER_ALIASES = load_cluster_aliases()
 
 
 def load_ingest_module():
@@ -123,6 +149,7 @@ def group_summary_clusters(summary_dir: Path) -> list[tuple[str, int]]:
     for page in summary_dir.glob("chat-*.md"):
         match = re.match(r"chat-(.+)_[0-9a-f]{8}\.md$", page.name)
         cluster = match.group(1) if match else page.stem
+        cluster = CLUSTER_ALIASES.get(cluster, cluster)
         counter[cluster] += 1
     return counter.most_common()
 
@@ -196,6 +223,7 @@ def rebuild_index() -> dict:
         "## Current Interpretation",
         "",
         "- Fresh sessions should route through `entities/`, `concepts/`, and `queries/` before falling back to summaries.",
+        "- Folder names and chat titles are heuristic signals only; canonical product identity can span renamed or versioned workspaces.",
         "- `wiki/summaries/` is the compression layer over raw transcripts, not the final memory layer.",
         "- The durable memory layer should keep growing as repeated decisions, bugs, and architecture patterns become clear.",
         "",
