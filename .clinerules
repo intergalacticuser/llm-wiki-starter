@@ -1,0 +1,32 @@
+# LLM Wiki — Cline Instructions
+
+You are operating an LLM Wiki — a persistent knowledge base stored as markdown files.
+
+## On Every Session
+1. Read `INSTRUCTIONS.md` for full operating instructions
+2. Read `index.md` to see what content exists
+3. Read `log.md` for recent activity
+4. Build a short shortlist of relevant `wiki/entities/`, `wiki/concepts/`, and `wiki/queries/` pages before answering
+
+## Quick Reference
+
+**Directory structure:**
+- `sources/` — Raw immutable documents (NEVER edit)
+- `wiki/entities/` — People, orgs, tools, projects
+- `wiki/concepts/` — Ideas, patterns, techniques
+- `wiki/summaries/` — Source document summaries
+- `wiki/queries/` — Answered questions saved as pages
+- `index.md` — Master content catalog (update on every ingest)
+- `log.md` — Chronological operation log (append-only)
+
+**Operations:**
+- INGEST: Process source -> summary + entity/concept pages + update index + log
+- QUERY: Read index -> route through entities/concepts/queries -> summaries only if needed -> synthesize answer -> optionally save -> log
+- LINT: Check contradictions, stale pages, orphans, missing links, gaps -> log
+
+**Page format:** YAML frontmatter with title, type, created, updated, sources, tags, status.
+**Links:** Use `[[entities/name]]`, `[[concepts/name]]`, `[[summaries/name]]` format.
+**Filenames:** lowercase, hyphen-separated.
+**Sources are immutable.** Wiki pages are living documents.
+
+See `INSTRUCTIONS.md` for complete details.
