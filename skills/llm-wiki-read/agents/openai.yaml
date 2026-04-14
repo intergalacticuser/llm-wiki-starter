@@ -1,0 +1,8 @@
+interface:
+  display_name: "LLM Wiki Read"
+  short_description: "Read existing wiki memory before answering"
+  brand_color: "#2563EB"
+  default_prompt: "Use $llm-wiki-read to review the durable wiki pages first and answer from existing memory."
+
+policy:
+  allow_implicit_invocation: false

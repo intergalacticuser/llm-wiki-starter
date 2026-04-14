@@ -1,0 +1,8 @@
+interface:
+  display_name: "LLM Wiki Refresh"
+  short_description: "Refresh wiki memory and summarize changes"
+  brand_color: "#2563EB"
+  default_prompt: "Use $llm-wiki-refresh to run the repository refresh workflow and summarize what changed."
+
+policy:
+  allow_implicit_invocation: false

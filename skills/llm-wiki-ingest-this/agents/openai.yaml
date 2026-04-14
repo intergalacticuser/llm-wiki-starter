@@ -1,0 +1,8 @@
+interface:
+  display_name: "LLM Wiki Ingest This"
+  short_description: "Ingest one chat or source into the wiki"
+  brand_color: "#2563EB"
+  default_prompt: "Use $llm-wiki-ingest-this to ingest one current chat or one source and summarize the resulting wiki updates."
+
+policy:
+  allow_implicit_invocation: false

@@ -8,6 +8,7 @@ The goal is to summarize user-visible improvements, workflow changes, and new ca
 
 - Initial public starter published
 - Added a reusable Codex skill for operating LLM Wiki repositories
+- Added a focused LLM Wiki skill pack for refresh, targeted ingest, broad ingest, read, and lint workflows
 
 ## v0.3 Privacy and Scale
 

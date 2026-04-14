@@ -1,0 +1,8 @@
+interface:
+  display_name: "LLM Wiki Ingest All"
+  short_description: "Run a broad wiki ingest pass"
+  brand_color: "#2563EB"
+  default_prompt: "Use $llm-wiki-ingest-all to run the broad ingest workflow for this repository and summarize the overall result."
+
+policy:
+  allow_implicit_invocation: false
